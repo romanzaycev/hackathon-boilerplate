@@ -60,7 +60,7 @@ sudo service postgresql restart
 
 # PHP
 if [ ! -f "/home/vagrant/php.lock" ]; then
-sudo apt-get install -y git unzip php php-common php-cli php-fpm php-json php-pdo php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath php-pgsql
+sudo apt-get install -y git unzip php php-common php-cli php-fpm php-memcached php-json php-pdo php-mysql php-zip php-gd php-mbstring php-curl php-xml php-pear php-bcmath php-pgsql
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === '48e3236262b34d30969dca3c37281b3b4bbe3221bda826ac6a9a62d6444cdb0dcd0615698a5cbe587c3f0fe57a54d8f5') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
@@ -93,4 +93,48 @@ sudo apt-get update
 sudo apt-get install -y ffmpeg
 touch /home/vagrant/ffmpeg.lock
 fi
+
+
+# =====
+
+
+# Beanstalkd
+if [ ! -f "/home/vagrant/beanstalkd.lock" ]; then
+sudo apt-get update
+sudo apt-get install -y beanstalkd
+touch /home/vagrant/beanstalkd.lock
+fi
+
+
+# =====
+
+
+# Aurora
+if [ ! -f "/home/vagrant/aurora.lock" ]; then
+mkdir /home/vagrant/aurora
+sudo apt-get update
+sudo apt-get install -y wget
+wget --quiet -O /home/vagrant/aurora/dist.tar.gz https://github.com/xuri/aurora/releases/download/2.2/aurora_linux_amd64_v2.2.tar.gz
+tar  -C /home/vagrant/aurora -xzf /home/vagrant/aurora/dist.tar.gz
+rm -rf /home/vagrant/aurora/dist.tar.gz
+touch /home/vagrant/aurora.lock
+fi
+sudo rm -rf /home/vagrant/aurora/aurora.toml
+sudo yes | cp -f /vagrant/.provision/aurora/aurora.toml /home/vagrant/aurora/aurora.toml
+sudo chown -R vagrant:vagrant /home/vagrant/aurora/
+sudo su - vagrant -c "nohup /home/vagrant/aurora/aurora > /home/vagrant/aurora/aurora.log 2>&1 &"
+
+
+# =====
+
+
+# Memcached
+if [ ! -f "/home/vagrant/memcached.lock" ]; then
+sudo apt-get update
+sudo apt-get install -y memcached
+touch /home/vagrant/memcached.lock
+fi
+sudo rm -rf /etc/memcached.conf
+sudo yes | cp -f /vagrant/.provision/memcached/memcached.conf /etc/memcached.conf
+sudo service memcached restart
 
