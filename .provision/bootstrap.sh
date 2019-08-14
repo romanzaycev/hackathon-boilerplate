@@ -138,3 +138,14 @@ sudo rm -rf /etc/memcached.conf
 sudo yes | cp -f /vagrant/.provision/memcached/memcached.conf /etc/memcached.conf
 sudo service memcached restart
 
+
+# =====
+
+
+# PIP
+if [ ! -f "/home/vagrant/pip.lock" ]; then
+sudo apt-get update
+sudo apt-get install -y python3-pip
+touch /home/vagrant/pip.lock
+fi
+

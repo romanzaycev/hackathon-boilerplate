@@ -9,7 +9,8 @@
 * Nodejs 12.6.0
 * NPM 6.9.0
 * FFMPEG 4.1.3
-* Python 3.7.3
+* Python 3.7.3 (available as `python3`)
+    * with PIP 18.1 (available as `pip3`)
 * Beanstalkd 1.10
     * with Aurora 2.2
 * Memcached 1.5.6
@@ -20,6 +21,11 @@ mkdir hackathon
 cd hackathon
 git clone https://github.com/romanzaycev/hackathon-vg.git .
 vagrant up
+```
+
+### Vbguest
+```bash
+vagrant plugin install vagrant-vbguest
 ```
 
 ## Default settings:
