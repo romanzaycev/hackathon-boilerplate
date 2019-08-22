@@ -1,2 +1,6 @@
 /.vagrant/
 /.idea/
+/vendor/
+/logs/
+/rr*
+*.log

@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 5432, host: 54322, host_ip: "127.0.0.1" # Postgresql
   config.vm.network "private_network", ip: "192.168.55.11"
 
-  config.vm.synced_folder "public/", "/srv/vagrant_public"
+  config.vm.synced_folder "./", "/home/vagrant/hackathon"
 
   # plugins
   required_plugins = %w( vagrant-hostsupdater vagrant-vbguest )

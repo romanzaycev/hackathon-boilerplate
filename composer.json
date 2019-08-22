@@ -1,0 +1,16 @@
+{
+    "name": "romanzaycev/hackathon-boilerplate",
+    "description": "Hackathon boilerplate project",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman Zaycev",
+            "email": "box@romanzaycev.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "spiral/roadrunner": "^1.4"
+    }
+}

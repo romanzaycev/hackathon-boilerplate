@@ -1,4 +1,4 @@
-# Hackathon vagrant image
+# Hackathon boilerplate
 
 ## Boxed:
 * Debian 10
@@ -19,8 +19,13 @@
 ```bash
 mkdir hackathon
 cd hackathon
-git clone https://github.com/romanzaycev/hackathon-vg.git .
-vagrant up
+git clone https://github.com/romanzaycev/hackathon-boilerplate.git .
+vagrant up && vagrant ssh
+# \/\/\/ Inside VM \/\/\/
+cd ~/hackathon && composer install
+./vendor/bin/rr get-binary
+chmod +x start-dev.sh
+./start-dev
 ```
 
 ### Vbguest

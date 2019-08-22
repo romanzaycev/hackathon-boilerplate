@@ -149,3 +149,12 @@ sudo apt-get install -y python3-pip
 touch /home/vagrant/pip.lock
 fi
 
+
+# ====
+# Roadrunner started by default
+if [ -f "/home/vagrant/hackathon/start-dev.sh" ]; then
+cd /home/vagrant/hackathon/
+sudo chmod +x /home/vagrant/hackathon/start-dev.sh
+sudo -u vagrant ./start-dev.sh
+fi
+
