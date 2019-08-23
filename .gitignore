@@ -4,3 +4,4 @@
 /logs/
 /rr*
 *.log
+/config/.env
