@@ -1,5 +1,5 @@
 env:
-  ENVIRONMENT: development
+  ENVIRONMENT: production
 
 http:
   address: 127.0.0.1:8080
@@ -16,9 +16,9 @@ http:
     command: "php worker.php"
     relay: "pipes"
     pool:
-      numWorkers: 1
+      numWorkers: 4
       # maxJobs: 1 == reload worker after each request, 0 == unlimited (production value)
-      maxJobs: 1
+      maxJobs: 0
       destroyTimeout: 60
       allocateTimeout: 60
 
