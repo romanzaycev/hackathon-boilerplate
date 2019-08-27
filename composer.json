@@ -13,7 +13,10 @@
     "require": {
         "spiral/roadrunner": "^1.4",
         "robmorgan/phinx": "^0.10.8",
-        "vlucas/phpdotenv": "^3.4"
+        "vlucas/phpdotenv": "^3.4",
+        "laravel/lumen-framework": "^5.8",
+        "symfony/psr-http-message-bridge": "^1.2",
+        "nyholm/psr7": "^1.2"
     },
     "autoload": {
         "psr-4": {

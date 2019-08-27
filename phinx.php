@@ -16,9 +16,9 @@ return [
         'current' => [
             'adapter' => 'pgsql',
             'host' => \getenv("DB_HOST"),
-            'name' => \getenv("DB_NAME"),
-            'user' => \getenv("DB_USER"),
-            'pass' => \getenv("DB_PASS"),
+            'name' => \getenv("DB_DATABASE"),
+            'user' => \getenv("DB_USERNAME"),
+            'pass' => \getenv("DB_PASSWORD"),
             'port' => \getenv("DB_PORT"),
             'charset' => 'utf8',
         ],
