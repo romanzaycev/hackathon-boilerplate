@@ -87,6 +87,11 @@ class LumenApplicationAdapter implements Application
         */
 
         $app->singleton(
+            \Illuminate\Contracts\Console\Kernel::class,
+            \Hackathon\Application\Console\Kernel::class
+        );
+
+        $app->singleton(
             \Illuminate\Contracts\Debug\ExceptionHandler::class,
             \Hackathon\Application\Exceptions\Handler::class
         );
@@ -179,5 +184,13 @@ class LumenApplicationAdapter implements Application
         $protectedProxy->call($this->lumen);
 
         return $resp;
+    }
+
+    /**
+     * @return \Laravel\Lumen\Application
+     */
+    public function getLumen(): \Laravel\Lumen\Application
+    {
+        return $this->lumen;
     }
 }
