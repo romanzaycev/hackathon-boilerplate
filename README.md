@@ -1,5 +1,11 @@
 # Hackathon boilerplate
 
+## Tools and frameworks:
+* Lumen framework (under RoadRunner)
+* Phinx
+* PHPUnit/Mockery
+* Reactjs
+
 ## Boxed:
 * Debian 10
 * Nginx 1.14.2
