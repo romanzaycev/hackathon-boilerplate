@@ -150,7 +150,19 @@ touch /home/vagrant/pip.lock
 fi
 
 
-# ====
+# =====
+
+
+# Default config
+if [ ! -f "/home/vagrant/hackathon/config/.env" ]; then
+cp /home/vagrant/hackathon/config/.env.dist /home/vagrant/hackathon/config/.env
+sudo chown vagrant:vagrant /home/vagrant/hackathon/config/.env
+fi
+
+
+# =====
+
+
 # Roadrunner started by default
 if [ -f "/home/vagrant/hackathon/start-dev.sh" ]; then
 cd /home/vagrant/hackathon/
